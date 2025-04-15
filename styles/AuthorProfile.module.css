@@ -1,0 +1,64 @@
+.ProfileWrapper {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.ProfileImage {
+  margin: 0 auto 12px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.ProfileName {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.ProfileJob {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.ProfileBio {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.ProfileLinks {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ProfileLinks a {
+  color: #444;
+  font-size: 1.6rem;
+  text-decoration: none;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ProfileLinks a:hover {
+  background: #f0f0f0;
+}
+
+.Icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
