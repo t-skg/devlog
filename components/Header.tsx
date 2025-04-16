@@ -1,34 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
-import { Suspense } from 'react'
-import { SearchField, SearchFieldFallback } from '@/components/SearchField'
 import { getApp } from '@/lib/newt'
 import styles from '@/styles/Header.module.css'
-
-/* Googleタグの埋め込み */
-{
-  process.env.NEXT_PUBLIC_GA_ID && (
-    <>
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-      ></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-            page_path: window.location.pathname,
-          });
-        `,
-        }}
-      />
-    </>
-  )
-}
 
 export const revalidate = 60 * 60 * 24
 

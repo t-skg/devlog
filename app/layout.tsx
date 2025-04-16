@@ -1,4 +1,4 @@
-import { Analytics } from '@/components/Analytics'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import '@/styles/globals.css'
@@ -27,7 +27,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
-        <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   )
