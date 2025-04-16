@@ -1,4 +1,3 @@
-// app/profile/page.tsx
 import Image from 'next/image'
 import { FaXTwitter, FaGithub, FaGlobe } from 'react-icons/fa6'
 import { getAuthors } from '@/lib/newt'

@@ -12,7 +12,7 @@
 .Header_Inner {
   min-width: 0;
   display: flex;
-  justify-content: center; /* 中央寄せ */
+  justify-content: center;
   max-width: 1024px;
   margin: 0 auto;
   display: flex;
@@ -47,7 +47,7 @@
   width: 26px;
   height: 26px;
   object-fit: cover;
-  font-family: 'object-fit: cover'; /* IE11 */
+  font-family: 'object-fit: cover';
   border-radius: 4px;
 }
 .Title_Text {

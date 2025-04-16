@@ -52,12 +52,12 @@ export default async function Page({ searchParams }: Props) {
         </div>
       ) : (
         <div className={styles.Empty}>
-          <div className={styles.Empty_Emoji}>😵</div>
-          <h1 className={styles.Empty_Title}>Nothing found</h1>
+          <div className={styles.Empty_Emoji}>🔍</div>
+          <h1 className={styles.Empty_Title}>
+            該当する記事が見つかりませんでした
+          </h1>
           <p className={styles.Empty_Description}>
-            Sorry, but nothing matched search terms…
-            <br />
-            Please try again with different keywords!
+            キーワードを変えて再度検索するか、最新の記事をご覧ください。
           </p>
         </div>
       )}

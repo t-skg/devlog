@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { AuthorProfile } from '@/components/AuthorProfile'
 import { SearchClient } from '@/components/SearchClient'

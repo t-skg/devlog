@@ -22,11 +22,6 @@ export async function Header() {
           )}
           <div className={styles.Title_Text}>{app.name || app.uid}</div>
         </Link>
-        {/* 
-        <Suspense fallback={<SearchFieldFallback />}>
-          <SearchField />
-        </Suspense>
-      */}
       </div>
     </header>
   )

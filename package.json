@@ -1,12 +1,18 @@
 {
-  "name": "newt-starter-nextjs-blog",
+  "name": "practix-code-lab",
   "version": "1.0.0",
   "private": true,
   "keywords": [
-    "newt"
+    "nextjs",
+    "newt",
+    "headless-cms",
+    "blog",
+    "tech",
+    "bizdev",
+    "practix"
   ],
   "license": "MIT",
-  "author": "Newt <info@newt.so>",
+  "author": "Takashi Sekiguchi <s.takashi.bizconsulting@gmail.com>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

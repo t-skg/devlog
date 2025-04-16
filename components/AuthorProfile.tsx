@@ -23,16 +23,6 @@ export function AuthorProfile({ author }: { author: Author }) {
       <div className={styles.ProfileName}>{author.fullName}</div>
       <div className={styles.ProfileJob}>{author.jobTitle}</div>
 
-      {/* 自己紹介（リッチテキスト or プレーン） */}
-      {/* 
-      {author.biography && (
-        <div
-          className={styles.ProfileBio}
-          dangerouslySetInnerHTML={{ __html: author.biography }}
-        />
-      )} 
-      */}
-
       {/* ソーシャルリンク */}
       <div className={styles.ProfileLinks}>
         {author.x && (
