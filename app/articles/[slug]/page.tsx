@@ -154,7 +154,7 @@ export default async function Page({ params }: Props) {
         </div>
         <aside className={styles.Author}>
           <a
-            href="#"
+            href={`/profile`}
             className={styles.Author_Avatar}
             aria-label={article.author.fullName}
           >
@@ -179,10 +179,7 @@ export default async function Page({ params }: Props) {
             )}
           </a>
           <div className={styles.Author_Text}>
-            <Link
-              className={styles.Article_AuthorName}
-              href={`/authors/${article.author.slug}`}
-            >
+            <Link className={styles.Article_AuthorName} href={`/profile`}>
               {article.author.fullName}
             </Link>
             <div
