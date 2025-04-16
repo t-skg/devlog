@@ -77,8 +77,8 @@ PractiX Code Lab は、「企画も実装も、自分でやる人へ。」をコ
 ## 作者
 
 - 名前：Takashi Sekiguchi
-- Github:https://github.com/t-skg
-- ポートフォリオ:https://portfolio-t-skgs-projects.vercel.app
+- Github：https://github.com/t-skg
+- ポートフォリオ：https://portfolio-t-skgs-projects.vercel.app
 
 ---
 
@@ -95,7 +95,7 @@ MIT License
 前提：
 
 - ①NEWTへログインし、Appテンプレートの「Blog」にてスペースを作成しておく
-- ②:スペース設定よりWebhookを作成からVercelのテンプレートを選択
+- ②スペース設定よりWebhookを作成からVercelのテンプレートを選択 <br>
   ※Deploy Hookの作成方法はVercelのドキュメント（ https://vercel.com/docs/deploy-hooks ）をご確認ください
 
 ```bash
