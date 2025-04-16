@@ -17,7 +17,7 @@ PractiX Code Lab
 PractiX Code Lab は、「企画も実装も、自分でやる人へ。」をコンセプトとした技術ブログです。  
 事業検証・プログラミング・マーケティングなど、実践と学びを発信します。
 
-このサイトは [Newt](https://www.newt.so/) をヘッドレスCMSとして活用し、[Next.js](https://nextjs.org/) の App Router にて構築されています。
+[Newt](https://www.newt.so/) をヘッドレスCMSとして活用し、[Next.js](https://nextjs.org/) の App Router にて構築されています。
 
 ---
 
@@ -85,6 +85,9 @@ PractiX Code Lab は、「企画も実装も、自分でやる人へ。」をコ
 ## ライセンス
 
 MIT License
+© 2025 Takashi Sekiguchi
+
+> 本プロジェクトは [Newt-Inc/newt-starter-nextjs-blog](https://github.com/Newt-Inc/newt-starter-nextjs-blog) を元に改修・拡張されたものです。
 
 ---
 
