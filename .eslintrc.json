@@ -33,7 +33,8 @@
         ],
         "pathGroupsExcludedImportTypes": ["builtin"],
         "alphabetize": {
-          "order": "asc"
+          "order": "asc",
+          "caseInsensitive": true
         }
       }
     ]

@@ -1,8 +1,11 @@
-import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { Footer } from '@/components/Footer'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { Header } from '@/components/Header'
+
 import '@/styles/globals.css'
+
 import styles from '@/styles/Layout.module.css'
+
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
