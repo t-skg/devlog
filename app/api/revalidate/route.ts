@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json()
-    const slug = body?.slug || body?.content?.slug // 柔軟に対応
+    const slug = body?.slug || body?.content?.slug
 
     revalidatePath('/')
     revalidatePath('/profile')

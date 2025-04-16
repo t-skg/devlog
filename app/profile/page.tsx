@@ -8,7 +8,7 @@ export const revalidate = 60 * 60 * 24
 
 export default async function ProfilePage() {
   const authors = await getAuthors()
-  const author = authors[0] // 単著者前提
+  const author = authors[0]
 
   return (
     <div className={styles.ProfileContainer}>
