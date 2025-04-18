@@ -7,7 +7,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'PractiX Code Lab',
-  description: 'NewtとNext.jsを利用したブログです',
+  description:
+    ' アイデアをコードへと落とし込むプロセスと学びを記録・発信する個人ブログ',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
@@ -18,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        {' '}
         <script src="https://www.google.com/recaptcha/api.js" async defer />
       </head>
       <body>
