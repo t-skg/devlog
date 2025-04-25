@@ -16,6 +16,7 @@ export default async function Page() {
 
   return (
     <>
+      {/* {app.cover?.value && <Cover />} */}
       <div className={styles.Container}>
         <div className={styles.Container_Inner}>
           <main className={styles.Articles}>
