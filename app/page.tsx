@@ -1,5 +1,5 @@
 import { ArticleCard } from '@/components/ArticleCard'
-import { Cover } from '@/components/Cover'
+// import { Cover } from '@/components/Cover'
 import { Pagination } from '@/components/Pagination'
 import { Side } from '@/components/Side'
 import { getApp, getArticles } from '@/lib/newt'
@@ -16,7 +16,6 @@ export default async function Page() {
 
   return (
     <>
-      {/* {app.cover?.value && <Cover />} */}
       <div className={styles.Container}>
         <div className={styles.Container_Inner}>
           <main className={styles.Articles}>
