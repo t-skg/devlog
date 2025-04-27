@@ -39,7 +39,7 @@ export async function generateStaticParams() {
   }, Promise.resolve())
   return params
 }
-export const dynamicParams = false
+export const dynamicParams = true
 
 export default async function Page({ params }: Props) {
   const slug = params.slug
