@@ -46,7 +46,16 @@ export async function generateMetadata({ params }: Props) {
       type: 'article',
       title,
       description,
-      images: ogImage,
+      images: ogImage
+        ? [
+            {
+              url: ogImage,
+              width: 1200,
+              height: 630,
+              alt: article.title || '',
+            },
+          ]
+        : [],
     },
   }
 }
