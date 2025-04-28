@@ -19,7 +19,7 @@ export async function generateMetadata() {
         'Next.jsとヘッドレスCMSを活用した開発事例やノウハウを発信するブログサイトです。',
       images: [
         {
-          url: '/default-OGP.png',
+          url: 'https://devlog-amber.vercel.app/default-OGP.png',
           width: 1200,
           height: 630,
           alt: 'PractiX Code Lab',
