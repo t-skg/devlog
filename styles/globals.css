@@ -69,3 +69,36 @@ code {
 button {
   font-family: inherit;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 1.6rem;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 1.2em;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #f9f9f9;
+  font-weight: 700;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+@media (max-width: 768px) {
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
