@@ -19,6 +19,7 @@ type Props = {
 }
 
 export const revalidate = 60 * 60 * 24
+export const dynamic = 'force-dynamic'
 
 export async function generateStaticParams() {
   const { articles } = await getArticles()
