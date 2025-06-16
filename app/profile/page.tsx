@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { FaXTwitter, FaGithub, FaGlobe } from 'react-icons/fa6'
-import { getAuthors } from '@/lib/newt'
+import { getAuthors } from '@/lib/microcms'
 import styles from '@/styles/ProfilePage.module.css'
 
 export const revalidate = 60 * 60 * 24

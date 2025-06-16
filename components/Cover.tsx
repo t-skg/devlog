@@ -1,4 +1,4 @@
-import { getApp } from '@/lib/newt'
+import { getApp } from '@/lib/microcms'
 import styles from '@/styles/Cover.module.css'
 
 export async function Cover() {

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { AuthorProfile } from '@/components/AuthorProfile'
 import { SearchClient } from '@/components/SearchClient'
-import { getArchives, getAuthors, getAuthor, getTags } from '@/lib/newt'
+import { getArchives, getAuthors, getAuthor, getTags } from '@/lib/microcms'
 import styles from '@/styles/Side.module.css'
 
 export const revalidate = 60 * 60 * 24

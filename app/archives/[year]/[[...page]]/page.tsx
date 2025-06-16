@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { ArticleCard } from '@/components/ArticleCard'
 import { Pagination } from '@/components/Pagination'
 import { Side } from '@/components/Side'
-import { getArticles, getArchives } from '@/lib/newt'
+import { getArticles, getArchives } from '@/lib/microcms'
 import styles from '@/styles/ArticleList.module.css'
 
 type Props = {

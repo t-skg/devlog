@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { htmlToText } from 'html-to-text'
-import { getArticles } from '@/lib/newt'
+import { getArticles } from '@/lib/microcms'
 import styles from '@/styles/Search.module.css'
 
 type Props = {

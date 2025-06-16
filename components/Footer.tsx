@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getApp } from '@/lib/newt'
+import { getApp } from '@/lib/microcms'
 import styles from '@/styles/Footer.module.css'
 
 export async function Footer() {
@@ -10,15 +10,15 @@ export async function Footer() {
     <footer className={styles.Footer}>
       <div className={styles.Footer_Inner}>
         <Link className={styles.SiteName} href="/">
-          {app.icon?.type === 'emoji' && (
-            <span className={styles.SiteName_Icon}>{app.icon.value}</span>
+          {/* ヘッダーと同様に、正しい比率で画像を表示する */}
+          {app.icon?.src && (
+            <Image
+              src={app.icon.src}
+              alt={app.name} // alt属性にサイト名を設定
+              width={239} // 正しい比率に調整した横幅
+              height={23} // 元のレイアウトを維持するための高さ
+            />
           )}
-          {app.icon?.type === 'image' && (
-            <span className={styles.SiteName_Icon}>
-              <Image src={app.icon.value} alt="" width="23" height="23" />
-            </span>
-          )}
-          <div className={styles.SiteName_Text}>{app.name || app.uid}</div>
         </Link>
 
         <nav className={styles.Nav}>

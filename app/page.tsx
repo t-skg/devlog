@@ -2,7 +2,7 @@ import { ArticleCard } from '@/components/ArticleCard'
 // import { Cover } from '@/components/Cover'
 import { Pagination } from '@/components/Pagination'
 import { Side } from '@/components/Side'
-import { getApp, getArticles } from '@/lib/newt'
+import { getApp, getArticles } from '@/lib/microcms'
 import styles from '@/styles/ArticleList.module.css'
 
 export const revalidate = 60 * 60 * 24
