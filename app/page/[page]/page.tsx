@@ -34,12 +34,12 @@ export default async function Page({ params }: Props) {
   const limit = Number(process.env.NEXT_PUBLIC_PAGE_LIMIT) || 10
   const { articles, total } = await getArticles({
     limit,
-    skip: limit * (page - 1),
+    offset: limit * (page - 1),
   })
 
   return (
     <>
-      {app.cover?.value && <Cover />}
+      {app.cover?.src && <Cover />}
       <div className={styles.Container}>
         <div className={styles.Container_Inner}>
           <main className={styles.Articles}>

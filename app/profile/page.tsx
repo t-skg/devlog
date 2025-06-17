@@ -31,7 +31,7 @@ export default async function ProfilePage() {
       <section className={styles.Section}>
         <h1 className={styles.Title}>管理人プロフィール</h1>
         <div className={styles.ProfileCard}>
-          {author.profileImage && (
+          {author.profileImage?.src && (
             <Image
               src={author.profileImage.src}
               alt={author.fullName}

@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 import { FacebookShareButton } from '@/components/FacebookShareButton'
 import { TwitterShareButton } from '@/components/TwitterShareButton'
 import {
@@ -10,14 +13,9 @@ import {
   getArticles,
 } from '@/lib/microcms'
 
-// CSS Modules のインポート
+// CSS Modules
 import styles from '@/styles/Article.module.css'
 import bodyStyles from '@/styles/ArticleBody.module.css'
-
-// ★ 1. Markdownを正しく表示するためのライブラリをインポート
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import rehypeRaw from 'rehype-raw' // HTMLタグを解釈するために追加
 
 type Props = {
   params: {
@@ -95,13 +93,14 @@ export default async function Page({ params }: Props) {
     <main className={styles.Container}>
       <article className={styles.Article}>
         <div className={styles.Article_Cover}>
-          {/* @ts-ignore */}
-          <Image
-            src={article.coverImage.src}
-            alt=""
-            width="1000"
-            height="667"
-          />
+          {article.coverImage?.src && (
+            <Image
+              src={article.coverImage.src}
+              alt=""
+              width={1000}
+              height={667}
+            />
+          )}
         </div>
         <div className={styles.Article_Header}>
           <h1 className={styles.Article_Title}>{article.title}</h1>
@@ -156,7 +155,6 @@ export default async function Page({ params }: Props) {
             aria-label={article.author.fullName}
           >
             {article.author.profileImage?.src ? (
-              // @ts-ignore
               <Image
                 src={article.author.profileImage.src}
                 alt=""

@@ -21,7 +21,7 @@ export async function generateStaticParams() {
     await prevPromise
 
     const { total } = await getArticles({
-      tags: tag._id,
+      filters: `tags[equals]${tag._id}`,
     })
     const maxPage = Math.ceil(total / limit)
     const pages = Array.from({ length: maxPage }, (_, index) => index + 1)
@@ -54,9 +54,9 @@ export default async function Page({ params }: Props) {
 
   const limit = Number(process.env.NEXT_PUBLIC_PAGE_LIMIT) || 10
   const { articles, total } = await getArticles({
-    tags: tag._id,
+    filters: `tags[equals]${tag._id}`,
     limit,
-    skip: limit * (page - 1),
+    offset: limit * (page - 1),
   })
 
   return (

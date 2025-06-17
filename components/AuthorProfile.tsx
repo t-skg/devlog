@@ -8,7 +8,7 @@ export function AuthorProfile({ author }: { author: Author }) {
   return (
     <div className={styles.ProfileWrapper}>
       {/* プロフィール画像 */}
-      {author.profileImage && (
+      {author.profileImage?.src && (
         <div className={styles.ProfileImage}>
           <Image
             src={author.profileImage.src}

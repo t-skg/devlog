@@ -7,7 +7,7 @@ export async function Cover() {
   return (
     <div
       className={styles.Cover}
-      style={{ backgroundImage: `url(${app.cover?.value})` }}
+      style={{ backgroundImage: `url(${app.cover?.src})` }}
     >
       &nbsp;
     </div>

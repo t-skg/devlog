@@ -1,10 +1,12 @@
-import {
-  createClient,
+// 値（変数）のインポートと型のインポートを分離
+import { createClient } from 'microcms-js-sdk'
+import { cache } from 'react'
+import type {
   MicroCMSQueries,
   MicroCMSImage,
   MicroCMSDate,
+  MicroCMSContentId,
 } from 'microcms-js-sdk'
-import { cache } from 'react'
 
 // 外部の型定義ファイルを想定
 import type { Archive, Article as FormattedArticle } from '@/types/article'
@@ -22,12 +24,14 @@ type AuthorApiResponse = {
   x?: string
   github?: string
   portfolio?: string
-} & MicroCMSDate
+} & MicroCMSContentId &
+  MicroCMSDate
 
 type TagApiResponse = {
   name: string
   slug: string
-} & MicroCMSDate
+} & MicroCMSContentId &
+  MicroCMSDate
 
 type ArticleApiResponse = {
   title: string
@@ -42,7 +46,8 @@ type ArticleApiResponse = {
   }
   author: AuthorApiResponse
   tags: TagApiResponse[]
-} & MicroCMSDate
+} & MicroCMSContentId &
+  MicroCMSDate
 
 type SettingsApiResponse = {
   siteName: string
@@ -153,8 +158,9 @@ export const getArticles = cache(
   async (
     query?: MicroCMSQueries,
   ): Promise<{ articles: FormattedArticle[]; total: number }> => {
-    const { contents, total } = await client.get<{
+    const { contents, totalCount } = await client.get<{
       contents: ArticleApiResponse[]
+      totalCount: number
     }>({
       endpoint: 'articles',
       queries: {
@@ -165,7 +171,7 @@ export const getArticles = cache(
     const articles = contents.map(formatArticle)
     return {
       articles,
-      total,
+      total: totalCount,
     }
   },
 )
@@ -191,7 +197,7 @@ export const getPreviousArticle = cache(
     currentArticle: FormattedArticle,
   ): Promise<{ slug: string } | null> => {
     const { createdAt } = currentArticle._sys
-    const { contents } = await client.get<{ slug: string }[]>({
+    const { contents } = await client.get<{ contents: { slug: string }[] }>({
       endpoint: 'articles',
       queries: {
         fields: 'slug',
@@ -209,7 +215,7 @@ export const getNextArticle = cache(
     currentArticle: FormattedArticle,
   ): Promise<{ slug: string } | null> => {
     const { createdAt } = currentArticle._sys
-    const { contents } = await client.get<{ slug: string }[]>({
+    const { contents } = await client.get<{ contents: { slug: string }[] }>({
       endpoint: 'articles',
       queries: {
         fields: 'slug',

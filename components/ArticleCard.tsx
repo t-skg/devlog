@@ -10,7 +10,7 @@ export function ArticleCard({ article }: { article: Article }) {
     <Link className={styles.Article} href={`/articles/${article.slug}`}>
       {/* アイキャッチ画像エリア */}
       <div className={styles.Article_Eyecatch}>
-        {article.coverImage ? (
+        {article.coverImage?.src ? (
           <Image
             src={article.coverImage.src}
             alt=""
