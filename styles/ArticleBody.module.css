@@ -1,22 +1,18 @@
 /*
- * 記事本文の表示を、モダンで読みやすく整えるためのスタイルシート。
- * .content という親クラスの中にある要素にだけスタイルが適用されるように記述しています。
- * [NOTE] このプロジェクトは global.css で 1rem = 10px に設定されています。
- * 以下のrem指定は、その設定に基づいています。
- */
+このプロジェクトは global.css で 1rem = 10px に設定されています。
+以下のrem指定は、その設定に基づいています。
+*/
 
 .content {
-  color: #333; /* テキストの色を、純粋な黒より少し柔らかい色に */
+  color: #333;
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN',
-    'Hiragino Sans', Meiryo, sans-serif; /* モダンな日本語対応フォント */
-  /* global.css の body フォントサイズ 1.6rem (16px) を継承しつつ、可読性のために少し大きくします */
+    'Hiragino Sans', Meiryo, sans-serif;
   font-size: 1.7rem; /* 17px */
-  line-height: 1.9; /* 行間を広めに設定 */
+  line-height: 1.9;
   word-wrap: break-word;
 }
 
-/* --- 見出し(Headings) --- */
 .content h2,
 .content h3,
 .content h4,
@@ -24,10 +20,9 @@
 .content h6 {
   font-weight: 700;
   line-height: 1.5;
-  margin: 3em 0 1.2em; /* 見出しの上下に十分な余白を確保 */
+  margin: 3em 0 1.2em;
 }
 
-/* 1rem = 10px に基づいてサイズを再計算 */
 .content h2 {
   font-size: 2.8rem; /* 28px */
   padding-bottom: 0.5em;
@@ -42,14 +37,12 @@
   font-size: 1.9rem; /* 19px */
 }
 
-/* --- テキスト要素(Text Elements) --- */
 .content p {
-  margin: 0 0 1.2em 0; /* 段落ごとの下の余白を確保 */
-  /* pタグのフォントサイズ指定を削除し、親の.contentから継承させます */
+  margin: 0 0 1.2em 0;
 }
 
 .content a {
-  color: #1a0dab; /* 視認性の高い青色 */
+  color: #1a0dab;
   text-decoration: underline;
   text-decoration-color: #d1d5db;
   transition: all 0.2s ease-in-out;
@@ -69,7 +62,6 @@
   border-top: 1px solid #e5e7eb;
 }
 
-/* --- リスト(Lists) --- */
 .content ul,
 .content ol {
   margin: 0 0 1.8em 0;
@@ -85,13 +77,12 @@
   margin-top: 0.8em;
 }
 
-/* --- テーブル(Tables) --- */
 .content table {
   width: 100%;
   margin-bottom: 2.5em;
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 1.6rem; /* テーブル内の文字サイズを16pxに設定 */
+  font-size: 1.6rem;
 }
 
 .content th,
@@ -111,13 +102,12 @@
   background-color: #f9fafb;
 }
 
-/* --- その他(Others) --- */
 .content blockquote {
   margin: 2.5em 0;
   padding: 0.1em 1.5em;
   border-left: 4px solid #d1d5db;
   color: #4b5563;
-  font-size: 1.6rem; /* 引用内の文字サイズを少し小さく */
+  font-size: 1.6rem;
 }
 
 .content img {

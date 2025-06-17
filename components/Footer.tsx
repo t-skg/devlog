@@ -10,13 +10,12 @@ export async function Footer() {
     <footer className={styles.Footer}>
       <div className={styles.Footer_Inner}>
         <Link className={styles.SiteName} href="/">
-          {/* ヘッダーと同様に、正しい比率で画像を表示する */}
           {app.icon?.src && (
             <Image
               src={app.icon.src}
-              alt={app.name} // alt属性にサイト名を設定
-              width={239} // 正しい比率に調整した横幅
-              height={23} // 元のレイアウトを維持するための高さ
+              alt={app.name}
+              width={239} // アイコン画像のサイズに調整
+              height={23} // レイアウトを維持するための高さ
             />
           )}
         </Link>

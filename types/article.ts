@@ -1,9 +1,8 @@
 import type { Author } from '@/types/author'
 import type { Tag } from '@/types/tag'
 
-//アプリケーションで使う「画像」の型を独自に定義
 export interface Media {
-  _id?: string // 必須でなければ ? をつける
+  _id?: string
   src: string | null
   fileName?: string
   fileType?: string
@@ -14,11 +13,9 @@ export interface Media {
   altText?: string
 }
 
-//extends Content をやめ、必要なプロパティを直接書く
 export interface Article {
-  _id: string // Contentから継承していたプロパティ
+  _id: string
   _sys: {
-    // Contentから継承していたプロパティ
     createdAt: string
     updatedAt: string
   }

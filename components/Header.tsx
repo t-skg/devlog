@@ -12,14 +12,13 @@ export async function Header() {
     <header className={styles.Header}>
       <div className={styles.Header_Inner}>
         <Link className={styles.Title} href="/">
-          {/* ロゴ画像が存在する場合にのみ、正しい比率で画像を表示する */}
           {app.icon?.src && (
             <Image
               src={app.icon.src}
-              alt={app.name} // alt属性にサイト名を設定
-              width={270} // 正しい比率に調整した横幅
-              height={26} // 元のレイアウトを維持するための高さ
-              priority={true} // ヘッダーのロゴは優先的に読み込む
+              alt={app.name} // サイト名を設定
+              width={270} // アイコン比率に調整した横幅
+              height={26} // レイアウトを維持するための高さ
+              priority={true}
             />
           )}
         </Link>

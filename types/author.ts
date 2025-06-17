@@ -1,10 +1,8 @@
-import type { Media } from '@/types/article' // 先ほど定義したMediaを再利用
+import type { Media } from '@/types/article'
 
-//extends Content をやめ、必要なプロパティを直接書く
 export interface Author {
-  _id: string // Contentから継承していたプロパティ
+  _id: string
   _sys?: {
-    // 必須でなければ ? をつける
     createdAt: string
     updatedAt: string
   }
@@ -12,9 +10,8 @@ export interface Author {
   slug: string
   jobTitle?: string
   biography?: string
-  profileImage?: Media // Media型を使う
+  profileImage?: Media
   x?: string
   github?: string
   portfolio?: string
-  // x_twitter, github, portfolioなどのフィールドもここに追加
 }

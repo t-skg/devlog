@@ -7,7 +7,6 @@ import type { Author } from '@/types/author'
 export function AuthorProfile({ author }: { author: Author }) {
   return (
     <div className={styles.ProfileWrapper}>
-      {/* プロフィール画像 */}
       {author.profileImage?.src && (
         <div className={styles.ProfileImage}>
           <Image
@@ -19,11 +18,9 @@ export function AuthorProfile({ author }: { author: Author }) {
         </div>
       )}
 
-      {/* 名前・肩書き */}
       <div className={styles.ProfileName}>{author.fullName}</div>
       <div className={styles.ProfileJob}>{author.jobTitle}</div>
 
-      {/* ソーシャルリンク */}
       <div className={styles.ProfileLinks}>
         {author.x && (
           <a

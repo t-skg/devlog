@@ -1,4 +1,3 @@
-// 値（変数）のインポートと型のインポートを分離
 import { createClient } from 'microcms-js-sdk'
 import { cache } from 'react'
 import type {
@@ -8,7 +7,6 @@ import type {
   MicroCMSContentId,
 } from 'microcms-js-sdk'
 
-// 外部の型定義ファイルを想定
 import type { Archive, Article as FormattedArticle } from '@/types/article'
 import type { Author } from '@/types/author'
 import type { Tag, TagWithCount } from '@/types/tag'
@@ -56,8 +54,7 @@ type SettingsApiResponse = {
 } & MicroCMSDate
 
 // --- フロントエンドが期待する型定義 ---
-// あなたの /types/*.ts ファイルで定義されている型
-// App型はここで定義
+
 type App = {
   name: string
   icon?: { src: string | null; width?: number; height?: number }
@@ -115,7 +112,7 @@ const formatArticle = (rawArticle: ArticleApiResponse): FormattedArticle => {
 
 // --- 全件取得用のヘルパー関数 ---
 /**
- * 指定されたエンドポイントの全コンテンツをページネーションを使って取得する
+ * 指定されたエンドポイントの全コンテンツをページネーションを使って取得
  * @param endpoint 取得するAPIのエンドポイント名
  * @param queries クエリパラメータ
  * @returns 全コンテンツの配列
@@ -305,7 +302,7 @@ export const getAuthor = cache(async (slug: string): Promise<Author | null> => {
     queries: { filters: `slug[equals]${slug}` },
   })
   if (contents.length === 0) return null
-  // 著者情報もフロントの型に合わせる
+
   const author = contents[0]
   return {
     ...author,
@@ -319,10 +316,7 @@ export const getAuthor = cache(async (slug: string): Promise<Author | null> => {
   }
 })
 
-// getArchivesの実装例
 export const getArchives = cache(async (): Promise<Archive[]> => {
-  // 1. microCMSのシステムフィールドは `publishedAt` または `createdAt` を直接指定
-  // 2. 返ってくるオブジェクトの型も修正
   const articles = await getAllContents<{ createdAt: string }>('articles', {
     fields: 'createdAt',
   })
@@ -331,7 +325,6 @@ export const getArchives = cache(async (): Promise<Archive[]> => {
 
   const yearCounts = new Map<number, number>()
   articles.forEach((article) => {
-    // 3. `_sys` を経由せず、直接 `createdAt` を参照
     const year = new Date(article.createdAt).getFullYear()
     yearCounts.set(year, (yearCounts.get(year) || 0) + 1)
   })

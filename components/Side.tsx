@@ -13,9 +13,7 @@ export async function Side() {
 
   return (
     <aside className={styles.Side}>
-      {/* クライアントコンポーネントとして安全に描画 */}
       <SearchClient />
-
       <div className={styles.Side_Row}>
         <h3 className={styles.Side_Heading}>カテゴリー</h3>
         <ul className={styles.PopularTags}>

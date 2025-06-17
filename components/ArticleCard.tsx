@@ -1,14 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { formatDate } from '@/lib/date'
 import styles from '@/styles/ArticleCard.module.css'
 import type { Article } from '@/types/article'
 
 export function ArticleCard({ article }: { article: Article }) {
   return (
-    // 記事詳細ページへのリンク
     <Link className={styles.Article} href={`/articles/${article.slug}`}>
-      {/* アイキャッチ画像エリア */}
       <div className={styles.Article_Eyecatch}>
         {article.coverImage?.src ? (
           <Image
@@ -18,7 +15,6 @@ export function ArticleCard({ article }: { article: Article }) {
             height="667"
           />
         ) : (
-          // アイキャッチがない場合のプレースホルダー
           <div className={styles.Article_EyecatchEmpty}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -34,12 +30,8 @@ export function ArticleCard({ article }: { article: Article }) {
         )}
       </div>
 
-      {/* タイトル・カテゴリなどの情報エリア */}
       <div className={styles.Article_Data}>
-        {/* 記事タイトル */}
         <h3 className={styles.Article_Title}>{article.title}</h3>
-
-        {/* タグ（カテゴリ）リスト */}
         <ul className={styles.Article_Tags}>
           {(article.tags || []).map((tag) => (
             <li key={tag._id}>#{tag.name}</li>
