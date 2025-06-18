@@ -114,7 +114,7 @@ npm run dev
 # =========================
 MICROCMS_SERVICE_DOMAIN="あなたのサービスドメイン"
 MICROCMS_API_KEY="あなたのAPIキー"
-PAGE_LIMIT=5
+NEXT_PUBLIC_PAGE_LIMIT=5
 
 # =========================
 # Google reCAPTCHA
