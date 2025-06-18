@@ -1,4 +1,4 @@
-import { getApp } from '@/lib/newt'
+import { getApp } from '@/lib/microcms'
 import styles from '@/styles/Cover.module.css'
 
 export async function Cover() {
@@ -7,7 +7,7 @@ export async function Cover() {
   return (
     <div
       className={styles.Cover}
-      style={{ backgroundImage: `url(${app.cover?.value})` }}
+      style={{ backgroundImage: `url(${app.cover?.src})` }}
     >
       &nbsp;
     </div>

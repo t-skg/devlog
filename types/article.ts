@@ -1,8 +1,24 @@
-import type { Content, Media } from 'newt-client-js'
 import type { Author } from '@/types/author'
 import type { Tag } from '@/types/tag'
 
-export interface Article extends Content {
+export interface Media {
+  _id?: string
+  src: string | null
+  fileName?: string
+  fileType?: string
+  fileSize?: number
+  width?: number
+  height?: number
+  title?: string
+  altText?: string
+}
+
+export interface Article {
+  _id: string
+  _sys: {
+    createdAt: string
+    updatedAt: string
+  }
   title: string
   slug: string
   meta?: {
@@ -13,7 +29,7 @@ export interface Article extends Content {
   body: string
   coverImage: Media
   author: Author
-  tags?: Tag[]
+  tags: Tag[]
 }
 
 export interface Archive {

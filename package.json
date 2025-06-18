@@ -23,13 +23,16 @@
   "dependencies": {
     "html-to-text": "^9.0.5",
     "luxon": "^3.5.0",
-    "newt-client-js": "^3.3.8",
-    "next": "14.1.4",
+    "microcms-js-sdk": "^3.2.0",
+    "next": "^14.2.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-google-recaptcha": "^3.1.0",
     "react-hook-form": "^7.55.0",
     "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1",
     "resend": "^4.2.0"
   },
   "devDependencies": {

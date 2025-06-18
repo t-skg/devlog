@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { ArticleCard } from '@/components/ArticleCard'
 import { Pagination } from '@/components/Pagination'
 import { Side } from '@/components/Side'
-import { getArticles, getArchives } from '@/lib/newt'
+import { getArticles, getArchives } from '@/lib/microcms'
 import styles from '@/styles/ArticleList.module.css'
 
 type Props = {
@@ -23,11 +23,12 @@ export async function generateStaticParams() {
     await prevPromise
 
     const { total } = await getArticles({
-      '_sys.createdAt': {
-        gte: archive.year.toString(),
-        lt: (archive.year + 1).toString(),
-      },
+      // '_sys.createdAt' を 'filters' に変更
+      filters: `publishedAt[greater_than_or_equal_to]${archive.year}-01-01T00:00:00.000Z[and]publishedAt[less_than]${archive.year + 1}-01-01T00:00:00.000Z`,
+      // 件数のみ取得する場合は limit: 0 とするのが効率的です
+      limit: 0,
     })
+
     const maxPage = Math.ceil(total / limit)
     const pages = Array.from({ length: maxPage }, (_, index) => index + 1)
 
@@ -58,12 +59,10 @@ export default async function Page({ params }: Props) {
 
   const limit = Number(process.env.NEXT_PUBLIC_PAGE_LIMIT) || 10
   const { articles, total } = await getArticles({
-    '_sys.createdAt': {
-      gte: year.toString(),
-      lt: (year + 1).toString(),
-    },
+    // こちらも同様に 'filters' を使う
+    filters: `publishedAt[greater_than_or_equal_to]${year}-01-01T00:00:00.000Z[and]publishedAt[less_than]${year + 1}-01-01T00:00:00.000Z`,
     limit,
-    skip: limit * (page - 1),
+    offset: limit * (page - 1),
   })
 
   return (

@@ -1,16 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { htmlToText } from 'html-to-text'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 import { FacebookShareButton } from '@/components/FacebookShareButton'
 import { TwitterShareButton } from '@/components/TwitterShareButton'
 import {
-  getArticles,
   getArticle,
   getPreviousArticle,
   getNextArticle,
-} from '@/lib/newt'
+  getArticles,
+} from '@/lib/microcms'
+
+// CSS Modules
 import styles from '@/styles/Article.module.css'
+import bodyStyles from '@/styles/ArticleBody.module.css'
 
 type Props = {
   params: {
@@ -34,9 +39,15 @@ export async function generateMetadata({ params }: Props) {
   const article = await getArticle(slug)
 
   const title = article?.meta?.title || article?.title
-  const bodyDescription = htmlToText(article?.body || '', {
-    selectors: [{ selector: 'img', format: 'skip' }],
-  }).slice(0, 200)
+
+  // descriptionは本文から先頭200文字を抽出する（Markdown/HTMLタグ除去）
+  const bodyDescription =
+    article?.body
+      .replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '') // HTMLタグを除去
+      .replace(/(#|\*|_|`|>|\||-|~|\[|\]|\(|\))/g, '') // Markdown記法を除去
+      .replace(/\n/g, ' ') // 改行をスペースに
+      .slice(0, 200) || ''
+
   const description = article?.meta?.description || bodyDescription
   const ogImage = article?.meta?.ogImage?.src
 
@@ -53,7 +64,7 @@ export async function generateMetadata({ params }: Props) {
               url: ogImage,
               width: 1200,
               height: 630,
-              alt: article.title || '',
+              alt: article?.title || '',
             },
           ]
         : [
@@ -82,12 +93,14 @@ export default async function Page({ params }: Props) {
     <main className={styles.Container}>
       <article className={styles.Article}>
         <div className={styles.Article_Cover}>
-          <Image
-            src={article.coverImage.src}
-            alt=""
-            width="1000"
-            height="667"
-          />
+          {article.coverImage?.src && (
+            <Image
+              src={article.coverImage.src}
+              alt=""
+              width={1000}
+              height={667}
+            />
+          )}
         </div>
         <div className={styles.Article_Header}>
           <h1 className={styles.Article_Title}>{article.title}</h1>
@@ -112,10 +125,17 @@ export default async function Page({ params }: Props) {
             </div>
           </div>
         </div>
-        <div
-          className={styles.Article_Body}
-          dangerouslySetInnerHTML={{ __html: article.body }}
-        ></div>
+
+        {/* ★ 2. 本文の表示をReactMarkdownに置き換え */}
+        <div className={`${styles.Article_Body} ${bodyStyles.content}`}>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]} // テーブルなどのGFMを有効化
+            rehypePlugins={[rehypeRaw]} // Markdown内のHTMLを有効化
+          >
+            {article.body || ''}
+          </ReactMarkdown>
+        </div>
+
         <div className={styles.SnsShare}>
           <p className={styles.SnsShare_Label}>Share this post</p>
           <ul className={styles.SnsShare_List}>
@@ -127,13 +147,14 @@ export default async function Page({ params }: Props) {
             </li>
           </ul>
         </div>
+
         <aside className={styles.Author}>
           <a
             href={`/profile`}
             className={styles.Author_Avatar}
             aria-label={article.author.fullName}
           >
-            {article.author.profileImage ? (
+            {article.author.profileImage?.src ? (
               <Image
                 src={article.author.profileImage.src}
                 alt=""
@@ -157,12 +178,15 @@ export default async function Page({ params }: Props) {
             <Link className={styles.Article_AuthorName} href={`/profile`}>
               {article.author.fullName}
             </Link>
-            <div
-              className={styles.Author_Description}
-              dangerouslySetInnerHTML={{
-                __html: article.author.biography || '',
-              }}
-            ></div>
+            <div className={styles.Author_Description}>
+              {/* ★ 3. 著者紹介文も同様にReactMarkdownで表示 */}
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+              >
+                {article.author.biography || ''}
+              </ReactMarkdown>
+            </div>
           </div>
         </aside>
         <nav className={styles.Links}>

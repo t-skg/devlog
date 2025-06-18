@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { FaXTwitter, FaGithub, FaGlobe } from 'react-icons/fa6'
-import { getAuthors } from '@/lib/newt'
+import { getAuthors } from '@/lib/microcms'
 import styles from '@/styles/ProfilePage.module.css'
 
 export const revalidate = 60 * 60 * 24
@@ -31,7 +31,7 @@ export default async function ProfilePage() {
       <section className={styles.Section}>
         <h1 className={styles.Title}>管理人プロフィール</h1>
         <div className={styles.ProfileCard}>
-          {author.profileImage && (
+          {author.profileImage?.src && (
             <Image
               src={author.profileImage.src}
               alt={author.fullName}

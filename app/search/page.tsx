@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { htmlToText } from 'html-to-text'
-import { getArticles } from '@/lib/newt'
+import { getArticles } from '@/lib/microcms'
 import styles from '@/styles/Search.module.css'
 
 type Props = {
@@ -11,17 +11,9 @@ type Props = {
 
 export default async function Page({ searchParams }: Props) {
   const { q } = searchParams
-
   const { articles, total } = q
     ? await getArticles({
-        or: [
-          {
-            title: { match: q },
-          },
-          {
-            body: { match: q },
-          },
-        ],
+        filters: `title[contains]${q}[or]body[contains]${q}`,
       })
     : { articles: [], total: 0 }
 

@@ -1,6 +1,9 @@
-import type { Content } from 'newt-client-js'
-
-export interface Tag extends Content {
+export interface Tag {
+  _id: string
+  _sys?: {
+    createdAt: string
+    updatedAt: string
+  }
   name: string
   slug: string
 }

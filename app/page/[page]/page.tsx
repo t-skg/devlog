@@ -2,7 +2,7 @@ import { ArticleCard } from '@/components/ArticleCard'
 import { Cover } from '@/components/Cover'
 import { Pagination } from '@/components/Pagination'
 import { Side } from '@/components/Side'
-import { getApp, getArticles } from '@/lib/newt'
+import { getApp, getArticles } from '@/lib/microcms'
 import styles from '@/styles/ArticleList.module.css'
 
 type Props = {
@@ -22,24 +22,24 @@ export async function generateStaticParams() {
     page: page.toString(),
   }))
 }
-export const dynamicParams = false
+export const dynamicParams = true
 
 export default async function Page({ params }: Props) {
   const { page: _page } = params
   const page = Number(_page) || 1
 
   const app = await getApp()
-  const headingText = 'Recent Articles'
+  const headingText = '新着記事'
 
   const limit = Number(process.env.NEXT_PUBLIC_PAGE_LIMIT) || 10
   const { articles, total } = await getArticles({
     limit,
-    skip: limit * (page - 1),
+    offset: limit * (page - 1),
   })
 
   return (
     <>
-      {app.cover?.value && <Cover />}
+      {/* {app.cover?.src && <Cover />} */}
       <div className={styles.Container}>
         <div className={styles.Container_Inner}>
           <main className={styles.Articles}>
