@@ -22,14 +22,14 @@ export async function generateStaticParams() {
     page: page.toString(),
   }))
 }
-export const dynamicParams = false
+export const dynamicParams = true
 
 export default async function Page({ params }: Props) {
   const { page: _page } = params
   const page = Number(_page) || 1
 
   const app = await getApp()
-  const headingText = 'Recent Articles'
+  const headingText = '新着記事'
 
   const limit = Number(process.env.NEXT_PUBLIC_PAGE_LIMIT) || 10
   const { articles, total } = await getArticles({
@@ -39,7 +39,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      {app.cover?.src && <Cover />}
+      {/* {app.cover?.src && <Cover />} */}
       <div className={styles.Container}>
         <div className={styles.Container_Inner}>
           <main className={styles.Articles}>

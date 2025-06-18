@@ -1,5 +1,4 @@
 import { ArticleCard } from '@/components/ArticleCard'
-// import { Cover } from '@/components/Cover'
 import { Pagination } from '@/components/Pagination'
 import { Side } from '@/components/Side'
 import { getApp, getArticles } from '@/lib/microcms'
