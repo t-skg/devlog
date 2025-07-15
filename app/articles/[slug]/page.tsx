@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: Props) {
               url: '/default-OGP.png',
               width: 1200,
               height: 630,
-              alt: 'PractiX Code Lab',
+              alt: 'Walkbit',
             },
           ],
     },

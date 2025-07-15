@@ -26,9 +26,7 @@ export async function Footer() {
         </nav>
       </div>
 
-      <div className={styles.Copy}>
-        © {new Date().getFullYear()} PractiX Code Lab
-      </div>
+      <div className={styles.Copy}>© {new Date().getFullYear()} Walkbit</div>
     </footer>
   )
 }

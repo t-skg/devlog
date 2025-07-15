@@ -1,5 +1,5 @@
 {
-  "name": "practix-code-lab",
+  "name": "walkbit",
   "version": "1.0.0",
   "private": true,
   "keywords": [
@@ -9,7 +9,7 @@
     "blog",
     "tech",
     "bizdev",
-    "practix"
+    "walkbit"
   ],
   "license": "MIT",
   "author": "Takashi Sekiguchi <s.takashi.bizconsulting@gmail.com>",

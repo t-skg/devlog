@@ -6,9 +6,9 @@ import styles from '@/styles/Layout.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'PractiX Code Lab',
+  title: 'walkbit',
   description:
-    ' アイデアをコードへと落とし込むプロセスと学びを記録・発信する個人ブログ',
+    '『walkbit』は、プログラミング初学者から中級者を対象に、便利なツールの使い方やチュートリアルを分かりやすく解説するメディアです。個人開発やスモールビジネス立ち上げのヒントも記録しています。',
   icons: {
     icon: '/favicon.ico',
   },

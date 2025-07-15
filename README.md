@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://devlog-amber.vercel.app/">
-    <img src="/public/favicon.ico" alt="PractiX Code Lab" width="50" />
+    <img src="/public/favicon.ico" alt="Walkbit" width="50" />
   </a>
 </p>
 <h3 align="center">
-  PractiX Code Lab
+  Walkbit
 </h3>
 <p align="center">
   <a href="https://devlog-amber.vercel.app/">Site</a> | <a href="https://microcms.io/">microCMS</a> | <a href="https://nextjs.org/">Next.js</a>
@@ -14,7 +14,7 @@
 
 ## 概要
 
-PractiX Code Lab は、「企画も実装も、自分でやる人へ。」をコンセプトとした技術ブログです。  
+Walkbit は、「企画も実装も、自分でやる人へ。」をコンセプトとした技術ブログです。  
 事業検証・プログラミング・マーケティングなど、実践と学びを発信します。
 
 [microCMS](https://microcms.io/) をヘッドレスCMSとして活用し、[Next.js](https://nextjs.org/) の App Router にて構築されています。
@@ -64,7 +64,6 @@ PractiX Code Lab は、「企画も実装も、自分でやる人へ。」をコ
 ## 今後の予定
 
 - [ ] 記事の執筆・定期更新
-- [ ] 独自ドメイン `practixcode.dev` への切り替え
 - [ ] サイト内検索機能の改善
 
 ---

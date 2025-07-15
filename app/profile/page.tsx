@@ -12,16 +12,16 @@ export default async function ProfilePage() {
   return (
     <div className={styles.ProfileContainer}>
       <section className={styles.Section}>
-        <h1 className={styles.Title}>PractiX Code Labについて</h1>
+        <h1 className={styles.Title}>Walkbitについて</h1>
         <p className={styles.Description}>
-          当サイトは企画も実装も自分でやる人にむけた、 <br />
-          アイデアをコードへと落とし込む、プロセスと学びを記録・発信する個人ブログです。
+          プログラミング初学者から中級者を対象に、 <br />
+          便利なツールの使い方やチュートリアルを分かりやすく解説するメディアです。
         </p>
-        <h2 className={styles.subTitle}>このブログで発信する主なカテゴリ</h2>
+        <h2 className={styles.subTitle}>主な発信カテゴリ</h2>
         <ul className={styles.List}>
-          <li>アイデアが動き出すまでの道のり</li>
-          <li>開発中にぶつかった課題と、その突破の記録</li>
-          <li>テクノロジーを事業にどう生かせるか</li>
+          <li>開発ツールの使い方・チュートリアル</li>
+          <li>プログラミング学習のヒント</li>
+          <li>個人開発と事業立ち上げの記録</li>
         </ul>
         <p className={styles.Description}>
           事業企画から実装までの様々な視点から、役立つ情報を発信しています。
