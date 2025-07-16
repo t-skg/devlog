@@ -8,17 +8,17 @@ export const revalidate = 60 * 60 * 24
 
 export async function generateMetadata() {
   return {
-    title: 'Walkbit｜次の実践へつなぐ技術メディア',
+    title: 'Walkbit｜実践で学ぶ技術検証メディア',
     description:
-      'Next.jsとヘッドレスCMSを活用した開発事例やノウハウを発信するブログサイトです。',
+      '机上の空論より、動くコードを。様々な技術の検証ログや、リアルな利用シーンを想定した評価レポートを発信。あなたの「この技術、実際どうなの？」に答えます。',
     openGraph: {
       type: 'website',
-      title: 'Walkbit｜次の実践へつなぐ技術メディア',
+      title: 'Walkbit｜実践で学ぶ技術検証メディア',
       description:
-        'Next.jsとヘッドレスCMSを活用した開発事例やノウハウを発信するブログサイトです。',
+        '机上の空論より、動くコードを。様々な技術の検証ログや、リアルな利用シーンを想定した評価レポートを発信。あなたの「この技術、実際どうなの？」に答えます。',
       images: [
         {
-          url: 'https://devlog-amber.vercel.app/default-OGP.png',
+          url: 'https://www.walkbit.jp/default-OGP.png',
           width: 1200,
           height: 630,
           alt: 'Walkbit',
