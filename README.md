@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://devlog-amber.vercel.app/">
+  <a href="https://www.walkbit.jp.app/">
     <img src="/public/favicon.ico" alt="Walkbit" width="50" />
   </a>
 </p>
@@ -7,7 +7,7 @@
   Walkbit
 </h3>
 <p align="center">
-  <a href="https://devlog-amber.vercel.app/">Site</a> | <a href="https://microcms.io/">microCMS</a> | <a href="https://nextjs.org/">Next.js</a>
+  <a href="https://www.walkbit.jp/">Site</a> | <a href="https://microcms.io/">microCMS</a> | <a href="https://nextjs.org/">Next.js</a>
 </p>
 
 ---

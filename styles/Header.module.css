@@ -43,12 +43,12 @@
   margin: 0 10px -2px 0;
 }
 .Title_Icon img {
-  width: 26px;
+  width: auto;
   height: 26px;
-  object-fit: cover;
   font-family: 'object-fit: cover';
   border-radius: 4px;
 }
+
 .Title_Text {
   margin: 0;
   padding: 0;

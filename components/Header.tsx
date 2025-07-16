@@ -16,8 +16,8 @@ export async function Header() {
             <Image
               src={app.icon.src}
               alt={app.name} // サイト名を設定
-              width={270} // アイコン比率に調整した横幅
-              height={26} // レイアウトを維持するための高さ
+              width={app.icon.width} // アイコン比率に調整した横幅
+              height={app.icon.height} // レイアウトを維持するための高さ
               priority={true}
             />
           )}
