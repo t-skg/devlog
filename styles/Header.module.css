@@ -43,8 +43,16 @@
   margin: 0 10px -2px 0;
 }
 .Title_Icon img {
-  width: auto;
+  width: 26px;
   height: 26px;
+  object-fit: cover;
+  font-family: 'object-fit: cover';
+  border-radius: 4px;
+}
+
+.logoImage {
+  height: 39px !important;
+  width: auto !important;
   font-family: 'object-fit: cover';
   border-radius: 4px;
 }
