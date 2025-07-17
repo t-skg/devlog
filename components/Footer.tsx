@@ -14,7 +14,7 @@ export async function Footer() {
             <Image
               className={styles.logoImage}
               src="/default-OGP.png"
-              alt={app.name}
+              alt="Walkbit"
               width={app.icon.width}
               height={app.icon.height}
               priority={true}
