@@ -12,10 +12,12 @@ export async function Footer() {
         <Link className={styles.SiteName} href="/">
           {app.icon?.src && (
             <Image
-              src={app.icon.src}
+              className={styles.logoImage}
+              src="/default-OGP.png"
               alt={app.name}
-              width={239} // アイコン画像のサイズに調整
-              height={23} // レイアウトを維持するための高さ
+              width={app.icon.width}
+              height={app.icon.height}
+              priority={true}
             />
           )}
         </Link>

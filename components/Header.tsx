@@ -14,11 +14,11 @@ export async function Header() {
         <Link className={styles.Title} href="/">
           {app.icon?.src && (
             <Image
-              className={styles.logoImage} // ← 新しいクラスをここに適用
-              src={app.icon.src}
-              alt={app.name} // サイト名を設定
-              width={app.icon.width} // アイコン比率に調整した横幅
-              height={app.icon.height} // レイアウトを維持するための高さ
+              className={styles.logoImage}
+              src="/default-OGP.png"
+              alt={app.name}
+              width={app.icon.width}
+              height={app.icon.height}
               priority={true}
             />
           )}
