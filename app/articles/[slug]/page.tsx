@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import ReactMarkdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
-import remarkGfm from 'remark-gfm'
+import parse from 'html-react-parser'
+import DOMPurify from 'isomorphic-dompurify'
 import { FacebookShareButton } from '@/components/FacebookShareButton'
 import { TwitterShareButton } from '@/components/TwitterShareButton'
 import {
@@ -40,12 +39,11 @@ export async function generateMetadata({ params }: Props) {
 
   const title = article?.meta?.title || article?.title
 
-  // descriptionは本文から先頭200文字を抽出する（Markdown/HTMLタグ除去）
   const bodyDescription =
-    article?.body
-      .replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '') // HTMLタグを除去
-      .replace(/(#|\*|_|`|>|\||-|~|\[|\]|\(|\))/g, '') // Markdown記法を除去
-      .replace(/\n/g, ' ') // 改行をスペースに
+    article?.body //bodyはメタディスクリプションに変更
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
       .slice(0, 200) || ''
 
   const description = article?.meta?.description || bodyDescription
@@ -126,14 +124,8 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
 
-        {/* ★ 2. 本文の表示をReactMarkdownに置き換え */}
         <div className={`${styles.Article_Body} ${bodyStyles.content}`}>
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]} // テーブルなどのGFMを有効化
-            rehypePlugins={[rehypeRaw]} // Markdown内のHTMLを有効化
-          >
-            {article.body || ''}
-          </ReactMarkdown>
+          {parse(DOMPurify.sanitize(article.richeditor || ''))}
         </div>
 
         <div className={styles.SnsShare}>
@@ -179,13 +171,9 @@ export default async function Page({ params }: Props) {
               {article.author.fullName}
             </Link>
             <div className={styles.Author_Description}>
-              {/* ★ 3. 著者紹介文も同様にReactMarkdownで表示 */}
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
-              >
-                {article.author.biography || ''}
-              </ReactMarkdown>
+              <div>
+                {parse(DOMPurify.sanitize(article.author.biography || ''))}
+              </div>
             </div>
           </div>
         </aside>
