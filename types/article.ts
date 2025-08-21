@@ -26,7 +26,6 @@ export interface Article {
     description?: string
     ogImage?: Media
   }
-  body: string
   richeditor: string
   coverImage: Media
   author: Author

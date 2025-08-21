@@ -39,14 +39,7 @@ export async function generateMetadata({ params }: Props) {
 
   const title = article?.meta?.title || article?.title
 
-  const bodyDescription =
-    article?.body //bodyはメタディスクリプションに変更
-      .replace(/<[^>]*>/g, '')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .slice(0, 200) || ''
-
-  const description = article?.meta?.description || bodyDescription
+  const description = article?.meta?.description || ''
   const ogImage = article?.meta?.ogImage?.src
 
   return {

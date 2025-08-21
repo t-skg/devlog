@@ -34,7 +34,6 @@ type TagApiResponse = {
 type ArticleApiResponse = {
   title: string
   slug: string
-  body: string
   richeditor: string
   coverImage: MicroCMSImage
   meta: {
@@ -80,7 +79,6 @@ const formatArticle = (rawArticle: ArticleApiResponse): FormattedArticle => {
     },
     title: rawArticle.title,
     slug: rawArticle.slug,
-    body: rawArticle.body,
     richeditor: rawArticle.richeditor,
     coverImage: {
       _id: '',
